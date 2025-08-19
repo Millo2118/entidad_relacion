@@ -1,0 +1,38 @@
+Table users {
+    username varchar [unique]
+    id serial [primary key]
+    email varchar
+    nombre varchar
+}
+
+Table posts {
+    id serial [primary key]
+    title varchar
+    body text
+    user_id int
+    created_at timestamp
+}
+
+Table perfiles {
+    id serial [primary key]
+    biografia text
+    Fecha_Nacimiento date
+    ciudad text
+    estado text
+    pais text
+    telefono varchar
+    user_id int 
+}
+
+Table post_2 {
+    id serial [primary key]
+    title varchar
+    body text
+    user_id int
+    created_at timestamp
+}
+
+// Relaciones
+Ref: posts.user_id > users.id
+Ref: perfiles.user_id > users.id
+Ref: post_2.user_id > users.id
